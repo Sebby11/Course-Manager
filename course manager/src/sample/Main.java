@@ -41,19 +41,22 @@ public class Main extends Application {
 
 
         //Menu bar
-        Menu menu = new Menu("First Menu");
+        Menu menu = new Menu("Courses");
 
-        Menu subMenu = new Menu("Second Menu");
+        //MAJOR COURSES MENU
+        Menu Major_Menu = new Menu("Major Courses");
 
-        MenuItem m1 = new MenuItem("item 1.1.1");
-        subMenu.getItems().add(m1);
-        menu.getItems().add(subMenu);
+        MenuItem major1 = new MenuItem("Major 1");
+        Major_Menu.getItems().add(major1);
+        menu.getItems().add(Major_Menu);
 
-        MenuItem menuItem1 = new MenuItem("Item 1");
-        menu.getItems().add(menuItem1);
+        //GE COURSES MENU
+        Menu GE_Menu = new Menu("GE's");
+        menu.getItems().add(GE_Menu);
 
-        MenuItem menuItem2 = new MenuItem("Item 2");
-        menu.getItems().add(menuItem2);
+        MenuItem GE1 = new MenuItem("GE 1");
+        GE_Menu.getItems().add(GE1);
+        menu.getItems().add(GE_Menu);
 
         MenuBar mb = new MenuBar();
 
