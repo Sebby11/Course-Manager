@@ -43,6 +43,13 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         Group g = new Group();
 
+        //Add Sammy the Programmer
+        ImageView trash = new ImageView("trashcan.png");
+        trash.setLayoutX(0);
+        trash.setLayoutY(500);
+        trash.setFitHeight(90);
+        trash.setFitWidth(90);
+
         //Click twice label
         Label twice = new Label("***Click Twice to bring up Prerequisite courses***");
         twice.setLayoutX(0);
@@ -120,6 +127,7 @@ public class Main extends Application {
         g.getChildren().add(tablePic);
         g.getChildren().add(preq);
         g.getChildren().add(twice);
+        g.getChildren().add(trash);
 
         Scene scene = new Scene(g, 950, 650);
         scene.setFill(Color.rgb(255, 252, 105));
