@@ -19,6 +19,7 @@ import java.util.Random;
 import javax.xml.soap.Text;
 
 public class Controller {
+    int counter = 0;
     TableView table;
 
     Controller(TableView table) {
@@ -141,5 +142,6 @@ public class Controller {
         coinWindow.show();
 
     }
+
 
 }

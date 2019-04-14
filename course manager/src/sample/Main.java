@@ -23,10 +23,22 @@ public class Main extends Application {
 
     double orgSceneX, orgSceneY;
     double orgTranslateX, orgTranslateY;
+    int x1 = 500;
+    int x2 = 600;
+    int x3 = 700;
+    int y = 590;
+
+    String[] majorArray = {"CS 101", "CE 16", "CS 12B", "AMS 10"};
 
     @Override
     public void start(Stage primaryStage) throws Exception{
         Group g = new Group();
+
+        //Preq
+        Label preq = new Label("PREREQUISITE:");
+        preq.setLayoutY(590);
+        preq.setLayoutX(350);
+        preq.setFont(Font.font("Verdana", 18));    //Set font
 
         //Add program title
         Label title = new Label("Course Manager");
@@ -41,7 +53,7 @@ public class Main extends Application {
         //MAJOR COURSES MENU
         Menu Major_Menu = new Menu("Major Courses");
 
-        MenuItem major1 = new MenuItem("Major 1");
+        MenuItem major1 = new MenuItem(majorArray[0]);
         Major_Menu.getItems().add(major1);
         menu.getItems().add(Major_Menu);
 
@@ -59,26 +71,6 @@ public class Main extends Application {
 
         mb.setLayoutX(0);
         mb.setLayoutY(100);
-
-        //MenuTask
-        GE1.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent e) {
-                System.out.println("Testing");
-               Circle circle_Red = new Circle(50.0f, Color.RED);
-                circle_Red.setCursor(Cursor.HAND);
-                circle_Red.setOnMousePressed(circleOnMousePressedEventHandler);
-                circle_Red.setOnMouseDragged(circleOnMouseDraggedEventHandler);
-
-                Button course = new Button("I am a Gen ED!");
-                course.setCursor(Cursor.HAND);
-                course.setOnMousePressed(labelOnMousePressedEventHandler);
-                course.setOnMouseDragged(labelOnMouseDraggedEventHandler);
-
-                g.getChildren().add(course);
-
-            }
-        });
 
         //coin Flip
         Button coinFlip = new Button("Coin flip");
@@ -101,8 +93,8 @@ public class Main extends Application {
 
         //Table picture
         ImageView tablePic = new ImageView("table.png");
-        tablePic.setLayoutX(150);
-        tablePic.setLayoutY(100);
+        tablePic.setLayoutX(200);
+        tablePic.setLayoutY(50);
         tablePic.setFitHeight(520);
         tablePic.setFitWidth(730);
 
@@ -112,12 +104,68 @@ public class Main extends Application {
         g.getChildren().add(mb);
         g.getChildren().add(coinFlip);
         g.getChildren().add(tablePic);
+        g.getChildren().add(preq);
 
         Scene scene = new Scene(g, 950, 650);
         scene.setFill(Color.rgb(255, 252, 105));
 
         primaryStage.setScene(scene);
         primaryStage.show();
+
+        //MenuTask
+        major1.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                System.out.println("Testing");
+                Circle circle_Red = new Circle(50.0f, Color.RED);
+                circle_Red.setCursor(Cursor.HAND);
+                circle_Red.setOnMousePressed(circleOnMousePressedEventHandler);
+                circle_Red.setOnMouseDragged(circleOnMouseDraggedEventHandler);
+
+                Button CS101 = new Button(majorArray[0]);
+                CS101.setLayoutX(25);
+                CS101.setLayoutY(160);
+
+                CS101.setCursor(Cursor.HAND);
+                CS101.setOnMousePressed(labelOnMousePressedEventHandler);
+                CS101.setOnMouseDragged(labelOnMouseDraggedEventHandler);
+
+                CS101.setOnAction(new EventHandler<ActionEvent>() {
+                    @Override
+                    public void handle(ActionEvent e) {
+
+                        Button CE16 = new Button(majorArray[1]);
+                        CE16.setLayoutY(y);
+                        CE16.setLayoutX(x1);
+                        Button CS12B = new Button(majorArray[2]);
+                        CS12B.setLayoutY(y);
+                        CS12B.setLayoutX(x2);
+                        Button AMS10 = new Button(majorArray[3]);
+                        AMS10.setLayoutY(y);
+                        AMS10.setLayoutX(x3);
+
+                        CS12B.setCursor(Cursor.HAND);
+                        CS12B.setOnMousePressed(labelOnMousePressedEventHandler);
+                        CS12B.setOnMouseDragged(labelOnMouseDraggedEventHandler);
+
+                        CE16.setCursor(Cursor.HAND);
+                        CE16.setOnMousePressed(labelOnMousePressedEventHandler);
+                        CE16.setOnMouseDragged(labelOnMouseDraggedEventHandler);
+
+                        AMS10.setCursor(Cursor.HAND);
+                        AMS10.setOnMousePressed(labelOnMousePressedEventHandler);
+                        AMS10.setOnMouseDragged(labelOnMouseDraggedEventHandler);
+
+                        g.getChildren().add(CS12B);
+                        g.getChildren().add(AMS10);
+                        g.getChildren().add(CE16);
+                    }
+                });
+
+                g.getChildren().add(CS101);
+
+            }
+        });
 
 
     }
