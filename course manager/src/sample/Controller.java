@@ -137,7 +137,7 @@ public class Controller {
         Stage coinWindow = new Stage();
         coinWindow.setTitle("Coin flip!");
         coinWindow.setScene(tasks);
-        coinWindow.setResizable(false);
+        coinWindow.setResizable(true);
 
         coinWindow.show();
 

@@ -27,8 +27,10 @@ public class Main extends Application {
     int x2 = 600;
     int x3 = 700;
     int y = 590;
+    int y1 = 620;
+    int count_101 = 0;
 
-    String[] majorArray = {"CS 101", "CE 16", "CS 12B", "AMS 10"};
+    String[] majorArray = {"CS 101", "CE 16", "CS 12B", "AMS 10","CS 12A","MATH 19A"};
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -133,32 +135,70 @@ public class Main extends Application {
                 CS101.setOnAction(new EventHandler<ActionEvent>() {
                     @Override
                     public void handle(ActionEvent e) {
+                        count_101++;
+                        if (count_101 == 2) {
 
-                        Button CE16 = new Button(majorArray[1]);
-                        CE16.setLayoutY(y);
-                        CE16.setLayoutX(x1);
-                        Button CS12B = new Button(majorArray[2]);
-                        CS12B.setLayoutY(y);
-                        CS12B.setLayoutX(x2);
-                        Button AMS10 = new Button(majorArray[3]);
-                        AMS10.setLayoutY(y);
-                        AMS10.setLayoutX(x3);
+                            Button CE16 = new Button(majorArray[1]);
+                            CE16.setLayoutY(y);
+                            CE16.setLayoutX(x1);
+                            Button CS12B = new Button(majorArray[2]);
+                            CS12B.setLayoutY(y);
+                            CS12B.setLayoutX(x2);
+                            Button AMS10 = new Button(majorArray[3]);
+                            AMS10.setLayoutY(y);
+                            AMS10.setLayoutX(x3);
 
-                        CS12B.setCursor(Cursor.HAND);
-                        CS12B.setOnMousePressed(labelOnMousePressedEventHandler);
-                        CS12B.setOnMouseDragged(labelOnMouseDraggedEventHandler);
+                            CS12B.setCursor(Cursor.HAND);
+                            CS12B.setOnMousePressed(labelOnMousePressedEventHandler);
+                            CS12B.setOnMouseDragged(labelOnMouseDraggedEventHandler);
 
-                        CE16.setCursor(Cursor.HAND);
-                        CE16.setOnMousePressed(labelOnMousePressedEventHandler);
-                        CE16.setOnMouseDragged(labelOnMouseDraggedEventHandler);
+                            CE16.setCursor(Cursor.HAND);
+                            CE16.setOnMousePressed(labelOnMousePressedEventHandler);
+                            CE16.setOnMouseDragged(labelOnMouseDraggedEventHandler);
 
-                        AMS10.setCursor(Cursor.HAND);
-                        AMS10.setOnMousePressed(labelOnMousePressedEventHandler);
-                        AMS10.setOnMouseDragged(labelOnMouseDraggedEventHandler);
+                            AMS10.setCursor(Cursor.HAND);
+                            AMS10.setOnMousePressed(labelOnMousePressedEventHandler);
+                            AMS10.setOnMouseDragged(labelOnMouseDraggedEventHandler);
 
-                        g.getChildren().add(CS12B);
-                        g.getChildren().add(AMS10);
-                        g.getChildren().add(CE16);
+                            g.getChildren().add(CS12B);
+                            g.getChildren().add(AMS10);
+                            g.getChildren().add(CE16);
+
+                            //--
+                            CS12B.setOnAction(new EventHandler<ActionEvent>() {
+                                @Override
+                                public void handle(ActionEvent e) {
+
+                                    Button CS12A = new Button(majorArray[4]);
+                                    CS12A.setLayoutY(y1);
+                                    CS12A.setLayoutX(x1);
+
+                                    CS12A.setCursor(Cursor.HAND);
+                                    CS12A.setOnMousePressed(labelOnMousePressedEventHandler);
+                                    CS12A.setOnMouseDragged(labelOnMouseDraggedEventHandler);
+
+                                    g.getChildren().add(CS12A);
+
+                                }
+                            });
+                            CE16.setOnAction(new EventHandler<ActionEvent>() {
+                                @Override
+                                public void handle(ActionEvent e) {
+
+                                    Button MATH19A = new Button(majorArray[5]);
+                                    MATH19A.setLayoutY(y1);
+                                    MATH19A.setLayoutX(x2);
+
+                                    MATH19A.setCursor(Cursor.HAND);
+                                    MATH19A.setOnMousePressed(labelOnMousePressedEventHandler);
+                                    MATH19A.setOnMouseDragged(labelOnMouseDraggedEventHandler);
+
+                                    g.getChildren().add(MATH19A);
+
+                                }
+                            });
+
+                        }
                     }
                 });
 
