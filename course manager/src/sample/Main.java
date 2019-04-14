@@ -34,32 +34,6 @@ public class Main extends Application {
         title.setLayoutY(15);
         title.setFont(Font.font("Verdana", 25));    //Set font
 
-        //Add ex table
-        TableView table = new TableView();
-        table.setEditable(true);
-        table.setLayoutY(100);
-        table.setLayoutX(200);
-
-        TableColumn year = new TableColumn("Year");
-        year.setMinWidth(100);
-        TableColumn fall = new TableColumn("Fall");
-        fall.setMinWidth(150);
-        TableColumn winter = new TableColumn("Winter");
-        winter.setMinWidth(150);
-        TableColumn spring = new TableColumn("Spring");
-        spring.setMinWidth(150);
-        TableColumn summer = new TableColumn("(Summer)");
-        summer.setMinWidth(150);
-        table.getColumns().addAll(year, fall,winter,spring, summer);
-
-
-        Row r1 = new Row("row");
-
-        table.getItems().add(r1);
-        table.getItems().add(new Row("2nd"));
-        table.getItems().add(new Row("3rd"));
-        table.getItems().add(new Row("4th"));
-
 
         //Menu bar
         Menu menu = new Menu("Courses");
@@ -106,6 +80,18 @@ public class Main extends Application {
             }
         });
 
+        //coin Flip
+        Button coinFlip = new Button("Coin flip");
+        coinFlip.setLayoutY(300);
+        coinFlip.setLayoutX(0);
+
+        coinFlip.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                Controller.flipper();
+            }
+        });
+
         //Add Sammy the Programmer
         ImageView sammyPic = new ImageView("sammy.png");
         sammyPic.setLayoutX(0);
@@ -113,11 +99,19 @@ public class Main extends Application {
         sammyPic.setFitHeight(90);
         sammyPic.setFitWidth(90);
 
+        //Table picture
+        ImageView tablePic = new ImageView("table.png");
+        tablePic.setLayoutX(150);
+        tablePic.setLayoutY(100);
+        tablePic.setFitHeight(520);
+        tablePic.setFitWidth(730);
+
         //Add to window
         g.getChildren().add(title);
         g.getChildren().add(sammyPic);
-        g.getChildren().add(table);
         g.getChildren().add(mb);
+        g.getChildren().add(coinFlip);
+        g.getChildren().add(tablePic);
 
         Scene scene = new Scene(g, 950, 650);
         scene.setFill(Color.rgb(255, 252, 105));
